@@ -111,14 +111,7 @@ docker-compose up --build
 
 The application will be available at [http://localhost:3000](http://localhost:3000)
 
-**Note**: Make sure to set your MongoDB connection string in the \`.env\` file before running Docker.
-
-### Build Docker image manually:
-
-```bash
-docker build -t simple-orders-app .
-docker run -p 3000:3000 --env-file .env simple-orders-app
-```
+**Note**: Make sure to set your MongoDB connection string in the `.env` file before running Docker.
 
 ## Project Structure
 
@@ -188,16 +181,6 @@ The application uses a repository pattern with service functions:
 - Stock availability checks before order creation
 - Session validation for protected routes
 - MongoDB schema validation with indexes
-
-## Future Enhancements
-
-- Real authentication with JWT or OAuth
-- Payment processing integration
-- Admin dashboard for product management
-- Order status updates and tracking
-- Email notifications
-- Advanced search and filtering
-- Product categories and images
 
 ## License
 
