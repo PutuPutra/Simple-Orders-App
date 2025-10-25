@@ -105,7 +105,7 @@ This will:
 
 ### Build and run with Docker Compose:
 
-\`\`\`bash
+\`\`\`shell
 docker-compose up --build
 \`\`\`
 
@@ -115,7 +115,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ### Build Docker image manually:
 
-\`\`\`bash
+\`\`\`shell
 docker build -t simple-orders-app .
 docker run -p 3000:3000 --env-file .env simple-orders-app
 \`\`\`
