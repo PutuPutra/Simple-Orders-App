@@ -31,38 +31,38 @@ A full-stack order management application built with Next.js, featuring authenti
 
 2. Install dependencies:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
-3. Create a \`.env\` file in the root directory:
+3. Create a `.env` file in the root directory:
 
-\`\`\`env
+```env
 MONGODB_URI=mongodb+srv://clustername:<db_password>@user.jqcsr7m.mongodb.net/
 DATABASE_NAME=DB_NAME
 SESSION_SECRET=your-secret-key-here-change-in-production
-\`\`\`
+```
 
-Replace \`<db_password>\` with your actual MongoDB password.
+Replace `<db_password>` with your actual MongoDB password.
 
 4. Seed the database with initial products:
 
-\`\`\`bash
+```bash
 npm run seed
-\`\`\`
+```
 
 5. Run the development server:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ### Demo Credentials
 
-- Email: \`user@example.com\`
-- Password: \`password123\`
+- Email: `user@example.com`
+- Password: `password123`
 
 ## MongoDB Setup
 
@@ -72,28 +72,28 @@ The application uses the following collections:
 
 1. **products**: Stores product information
 
-   - \`id\`: Unique product identifier
-   - \`name\`: Product name
-   - \`price\`: Product price
-   - \`stock\`: Available stock quantity
+   - `id`: Unique product identifier
+   - `name`: Product name
+   - `price`: Product price
+   - `stock`: Available stock quantity
 
 2. **orders**: Stores order information
-   - \`id\`: Unique order identifier
-   - \`userId\`: User who created the order
-   - \`productId\`: Product being ordered
-   - \`productName\`: Product name (denormalized)
-   - \`quantity\`: Order quantity
-   - \`totalPrice\`: Total order price
-   - \`createdAt\`: Order creation timestamp
-   - \`status\`: Order status (pending/completed/cancelled)
+   - `id`: Unique order identifier
+   - `userId`: User who created the order
+   - `productId`: Product being ordered
+   - `productName`: Product name (denormalized)
+   - `quantity`: Order quantity
+   - `totalPrice`: Total order price
+   - `createdAt`: Order creation timestamp
+   - `status`: Order status (pending/completed/cancelled)
 
 ### Seeding the Database
 
 Run the seed script to populate the database with initial products:
 
-\`\`\`bash
-npm run seed
-\`\`\`
+```bash
+npm run dev
+```
 
 This will:
 
@@ -105,9 +105,9 @@ This will:
 
 ### Build and run with Docker Compose:
 
-\`\`\`shell
+```bash
 docker-compose up --build
-\`\`\`
+```
 
 The application will be available at [http://localhost:3000](http://localhost:3000)
 
@@ -115,14 +115,14 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ### Build Docker image manually:
 
-\`\`\`shell
+```bash
 docker build -t simple-orders-app .
 docker run -p 3000:3000 --env-file .env simple-orders-app
-\`\`\`
+```
 
 ## Project Structure
 
-\`\`\`
+```bash
 ├── app/
 │ ├── api/ # API routes
 │ ├── dashboard/ # Dashboard page
@@ -138,48 +138,48 @@ docker run -p 3000:3000 --env-file .env simple-orders-app
 │ └── seed-database.js # Database seeding script
 ├── Dockerfile # Docker configuration
 └── docker-compose.yml # Docker Compose configuration
-\`\`\`
+```
 
 ## Architecture
 
 The application follows a clean architecture pattern:
 
-- **Presentation Layer**: React components in \`/components\`
-- **API Layer**: Next.js API routes in \`/app/api\`
-- **Business Logic**: Service functions in \`/lib\`
+- **Presentation Layer**: React components in `/components`
+- **API Layer**: Next.js API routes in `/app/api`
+- **Business Logic**: Service functions in `/lib`
 - **Data Layer**: MongoDB with repository pattern
 
 ### MVC Pattern
 
-- **Models**: Data structures defined in \`/lib\` (User, Product, Order)
-- **Views**: React components in \`/components\`
-- **Controllers**: API routes in \`/app/api\`
+- **Models**: Data structures defined in `/lib` (User, Product, Order)
+- **Views**: React components in `/components`
+- **Controllers**: API routes in `/app/api`
 
 ### Repository Pattern
 
 The application uses a repository pattern with service functions:
 
-- \`lib/auth.ts\`: User authentication and session management
-- \`lib/mongodb.ts\`: MongoDB connection singleton
-- \`lib/products.ts\`: Product data access and management
-- \`lib/orders.ts\`: Order creation and retrieval
+- `lib/auth.ts`: User authentication and session management
+- `lib/mongodb.ts`: MongoDB connection singleton
+- `lib/products.ts`: Product data access and management
+- `lib/orders.ts`: Order creation and retrieval
 
 ## API Endpoints
 
 ### Authentication
 
-- \`POST /api/auth/login\`: User login
-- \`POST /api/auth/logout\`: User logout
-- \`GET /api/auth/session\`: Get current session
+- `POST /api/auth/login`: User login
+- `POST /api/auth/logout`: User logout
+- `GET /api/auth/session`: Get current session
 
 ### Products
 
-- \`GET /api/products\`: Get all products (requires authentication)
+- `GET /api/products`: Get all products (requires authentication)
 
 ### Orders
 
-- \`GET /api/orders\`: Get user's order history (requires authentication)
-- \`POST /api/orders\`: Create new order (requires authentication)
+- `GET /api/orders`: Get user's order history (requires authentication)
+- `POST /api/orders`: Create new order (requires authentication)
 
 ## Validation
 
